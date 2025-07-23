@@ -41,7 +41,7 @@ architecture Behavioral of datapath is
     end component;
     
     component mux4 generic(width: integer);
-        port(   d0, d1, d2, d4 :  in   STD_LOGIC_VECTOR(width-1 downto 0);
+        port(   d0, d1, d2, d3 :  in   STD_LOGIC_VECTOR(width-1 downto 0);
                 s              :  in   STD_LOGIC_VECTOR(1 downto 0);
                 y              :  out  STD_LOGIC_VECTOR(width-1 downto 0));
     end component;
@@ -94,7 +94,7 @@ begin
     -- ALU logic
     srcbmux: mux2       generic map(32) port map( WriteData, ImmExt, ALUSrc, SrcB);
     mainalu: alu        port map(SrcA, SrcB, ALUControl, ALUResult, Zero);
-    resultmux: mux4     generic map(32) port map(ALUResult, ReadData,  PCPlus4, X"00000000", ResultSrc, Result); --d3 is not used so I sent zero
+    resultmux: mux4     generic map(32) port map(ALUResult, ReadData,  PCPlus4, PCPlus4, ResultSrc, Result); --d3 is not used so I sent PCPlus4 again
 
 
 end Behavioral;

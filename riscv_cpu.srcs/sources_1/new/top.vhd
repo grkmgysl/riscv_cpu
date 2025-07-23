@@ -1,51 +1,45 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: gorkem
--- 
--- Create Date: 07/12/2025 05:10:22 PM
--- Design Name: 
--- Module Name: top_riscv - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.STD_LOGIC_1164.all;
 
 
 entity top is
-    Port (clk       : in STD_LOGIC;
-          reset     : in STD_LOGIC );
-          
+    port(   clk, reset  : in     STD_LOGIC;
+            WriteData   : buffer STD_LOGIC_VECTOR(31 downto 0);
+            DataAdr     : buffer STD_LOGIC_VECTOR(31 downto 0);
+            MemWrite    : buffer STD_LOGIC);
 end top;
 
 architecture Behavioral of top is
+    component top_riscv
+        port(   clk, reset  : in  STD_LOGIC;
+                PC          : out STD_LOGIC_VECTOR(31 downto 0);
+                Instr       : in  STD_LOGIC_VECTOR(31 downto 0);
+                MemWrite    : out STD_LOGIC;
+                ALUResult   : out STD_LOGIC_VECTOR(31 downto 0);
+                WriteData   : out STD_LOGIC_VECTOR(31 downto 0);
+                ReadData    : in  STD_LOGIC_VECTOR(31 downto 0));
+    end component;
 
-    signal WriteData    :   STD_LOGIC_VECTOR(31 downto 0);
-    signal ReadData     :   STD_LOGIC_VECTOR(31 downto 0);
-    signal DataAdr      :   STD_LOGIC_VECTOR(31 downto 0);
-    signal Instr        :   STD_LOGIC_VECTOR(31 downto 0);
-    signal PC           :   STD_LOGIC_VECTOR(31 downto 0);
-    
-    signal MemWrite     :   STD_LOGIC;
+    component inst_memory
+        port(   address     : in  STD_LOGIC_VECTOR(31 downto 0);
+                rd          : out STD_LOGIC_VECTOR(31 downto 0));
+    end component;
 
-    
-    
-    
+    component data_memory
+        port(   clk       :   in    STD_LOGIC;
+                we        :   in    STD_LOGIC; -- write enable
+                address   :   in    STD_LOGIC_VECTOR(31 downto 0);  -- data address
+                wd        :   in    STD_LOGIC_VECTOR(31 downto 0);  -- write data 
+                rd        :   out   STD_LOGIC_VECTOR(31 downto 0)); -- read data 
+    end component;
+
+    signal PC       : STD_LOGIC_VECTOR(31 downto 0);
+    signal Instr    : STD_LOGIC_VECTOR(31 downto 0);
+    signal ReadData : STD_LOGIC_VECTOR(31 downto 0);
 
 begin
-
-
-end Behavioral;
+    -- instantiate processor and memories
+    rvsingle    : top_riscv     port map( clk, reset, PC, Instr, MemWrite, DataAdr,WriteData, ReadData);
+    imem1       : inst_memory   port map(PC, Instr);
+    dmem1       : data_memory   port map( clk, MemWrite, DataAdr, WriteData, ReadData);
+ end; 

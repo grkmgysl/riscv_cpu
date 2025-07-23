@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Jul 23 17:13:11 2025
+# Process ID: 9836
+# Current directory: D:/vivado_projects/riscv_cpu/riscv_cpu.runs/synth_1
+# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: D:/vivado_projects/riscv_cpu/riscv_cpu.runs/synth_1/top.vds
+# Journal file: D:/vivado_projects/riscv_cpu/riscv_cpu.runs/synth_1\vivado.jou
+# Running On        :DESKTOP-5EV5U5E
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :19045
+# Processor Detail  :Intel(R) Core(TM) i3-10100F CPU @ 3.60GHz
+# CPU Frequency     :3600 MHz
+# CPU Physical cores:4
+# CPU Logical cores :8
+# Host memory       :17072 MB
+# Swap memory       :2550 MB
+# Total Virtual     :19622 MB
+# Available Virtual :8170 MB
+#-----------------------------------------------------------
+source top.tcl -notrace

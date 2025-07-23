@@ -1,0 +1,106 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Jul 23 17:13:11 2025
+# Process ID: 9836
+# Current directory: D:/vivado_projects/riscv_cpu/riscv_cpu.runs/synth_1
+# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: D:/vivado_projects/riscv_cpu/riscv_cpu.runs/synth_1/top.vds
+# Journal file: D:/vivado_projects/riscv_cpu/riscv_cpu.runs/synth_1\vivado.jou
+# Running On        :DESKTOP-5EV5U5E
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :19045
+# Processor Detail  :Intel(R) Core(TM) i3-10100F CPU @ 3.60GHz
+# CPU Frequency     :3600 MHz
+# CPU Physical cores:4
+# CPU Logical cores :8
+# Host memory       :17072 MB
+# Swap memory       :2550 MB
+# Total Virtual     :19622 MB
+# Available Virtual :8170 MB
+#-----------------------------------------------------------
+source top.tcl -notrace
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 515.598 ; gain = 202.344
+Command: synth_design -top top -part xc7a100tcsg324-2L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 10356
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 970.398 ; gain = 451.832
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-10729] formal port 'jump' of mode 'out' cannot be associated with actual port 'jump' of mode 'buffer' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:43]
+WARNING: [Synth 8-10729] formal port 'q' of mode 'out' cannot be associated with actual port 'pc' of mode 'buffer' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:85]
+WARNING: [Synth 8-10729] formal port 'rd2' of mode 'out' cannot be associated with actual port 'writedata' of mode 'buffer' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:91]
+WARNING: [Synth 8-10729] formal port 'memwrite' of mode 'out' cannot be associated with actual port 'memwrite' of mode 'buffer' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:42]
+WARNING: [Synth 8-10729] formal port 'aluresult' of mode 'out' cannot be associated with actual port 'dataadr' of mode 'buffer' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:42]
+WARNING: [Synth 8-10729] formal port 'writedata' of mode 'out' cannot be associated with actual port 'writedata' of mode 'buffer' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:42]
+INFO: [Synth 8-638] synthesizing module 'top' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:12]
+INFO: [Synth 8-3491] module 'top_riscv' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top_riscv.vhd:4' bound to instance 'rvsingle' of component 'top_riscv' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:42]
+INFO: [Synth 8-638] synthesizing module 'top_riscv' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top_riscv.vhd:14]
+INFO: [Synth 8-3491] module 'control_unit' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:3' bound to instance 'c' of component 'control_unit' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top_riscv.vhd:56]
+INFO: [Synth 8-638] synthesizing module 'control_unit' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:18]
+INFO: [Synth 8-3491] module 'main_decoder' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/main_decoder.vhd:4' bound to instance 'md' of component 'main_decoder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:43]
+INFO: [Synth 8-638] synthesizing module 'main_decoder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/main_decoder.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'main_decoder' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/main_decoder.vhd:16]
+INFO: [Synth 8-3491] module 'alu_decoder' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu_decoder.vhd:3' bound to instance 'ad' of component 'alu_decoder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:44]
+INFO: [Synth 8-638] synthesizing module 'alu_decoder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu_decoder.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'alu_decoder' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu_decoder.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'control_unit' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:18]
+INFO: [Synth 8-3491] module 'datapath' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:7' bound to instance 'dp' of component 'datapath' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top_riscv.vhd:58]
+INFO: [Synth 8-638] synthesizing module 'datapath' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:24]
+	Parameter width bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'ff_with_res' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/ff_with_res.vhd:6' bound to instance 'pcreg' of component 'ff_with_res' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:85]
+INFO: [Synth 8-638] synthesizing module 'ff_with_res' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/ff_with_res.vhd:14]
+	Parameter width bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'ff_with_res' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/ff_with_res.vhd:14]
+INFO: [Synth 8-3491] module 'adder' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/adder.vhd:6' bound to instance 'pcadd4' of component 'adder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:86]
+INFO: [Synth 8-638] synthesizing module 'adder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/adder.vhd:10]
+INFO: [Synth 8-256] done synthesizing module 'adder' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/adder.vhd:10]
+INFO: [Synth 8-3491] module 'adder' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/adder.vhd:6' bound to instance 'pcaddbranch' of component 'adder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:87]
+	Parameter width bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'mux2' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux2.vhd:4' bound to instance 'pcmux' of component 'mux2' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:88]
+INFO: [Synth 8-638] synthesizing module 'mux2' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux2.vhd:10]
+	Parameter width bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'mux2' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux2.vhd:10]
+INFO: [Synth 8-3491] module 'reg_file' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/reg_file.vhd:7' bound to instance 'rf' of component 'reg_file' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:91]
+INFO: [Synth 8-638] synthesizing module 'reg_file' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/reg_file.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'reg_file' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/reg_file.vhd:18]
+INFO: [Synth 8-3491] module 'extend_unit' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd:4' bound to instance 'ext' of component 'extend_unit' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:92]
+INFO: [Synth 8-638] synthesizing module 'extend_unit' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd:9]
+INFO: [Synth 8-226] default block is never used [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'extend_unit' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd:9]
+	Parameter width bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'mux2' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux2.vhd:4' bound to instance 'srcbmux' of component 'mux2' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:95]
+INFO: [Synth 8-3491] module 'alu' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu.vhd:8' bound to instance 'mainalu' of component 'alu' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:96]
+INFO: [Synth 8-638] synthesizing module 'alu' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'alu' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu.vhd:18]
+	Parameter width bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'mux4' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux4.vhd:4' bound to instance 'resultmux' of component 'mux4' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:97]
+INFO: [Synth 8-638] synthesizing module 'mux4' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux4.vhd:10]
+	Parameter width bound to: 32 - type: integer 
+WARNING: [Synth 8-614] signal 'd3' is read in the process but is not in the sensitivity list [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux4.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'mux4' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux4.vhd:10]
+INFO: [Synth 8-256] done synthesizing module 'datapath' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:24]
+INFO: [Synth 8-256] done synthesizing module 'top_riscv' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top_riscv.vhd:14]
+INFO: [Synth 8-3491] module 'inst_memory' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/inst_memory.vhd:8' bound to instance 'imem1' of component 'inst_memory' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:43]
+INFO: [Synth 8-638] synthesizing module 'inst_memory' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/inst_memory.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'inst_memory' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/inst_memory.vhd:14]
+INFO: [Synth 8-3491] module 'data_memory' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/data_memory.vhd:8' bound to instance 'dmem1' of component 'data_memory' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:44]
+INFO: [Synth 8-638] synthesizing module 'data_memory' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/data_memory.vhd:17]
+ERROR: [Synth 8-403] loop limit (65536) exceeded [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/data_memory.vhd:26]
+ERROR: [Synth 8-285] failed synthesizing module 'data_memory' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/data_memory.vhd:17]
+ERROR: [Synth 8-285] failed synthesizing module 'top' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:12]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1602.215 ; gain = 1083.648
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+50 Infos, 7 Warnings, 0 Critical Warnings and 4 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Wed Jul 23 17:13:33 2025...
