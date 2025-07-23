@@ -12,7 +12,7 @@ entity reg_file is
             wa3 : in STD_LOGIC_VECTOR(4 downto 0);      -- address of wd3
             wd3 : in STD_LOGIC_VECTOR(31 downto 0);     -- write data 3 
             rd1 : out STD_LOGIC_VECTOR(31 downto 0);    -- read output 1
-            rd2 : out STD_LOGIC_VECTOR(31 downto 0););  -- read output 2
+            rd2 : out STD_LOGIC_VECTOR(31 downto 0));  -- read output 2
 end reg_file;
 
 architecture Behavioral of reg_file is
@@ -33,7 +33,7 @@ begin
         end if ;
     end process;
 
-    process (all) begin
+    process (clk, we3, ra1, ra2, wa3, wd3) begin
         if (to_integer(unsigned(ra1)) = 0) then rd1 <= X"00000000";
             --register0 holds 0
         else rd1 <= mem(to_integer(unsigned(ra1)));
