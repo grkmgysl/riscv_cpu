@@ -24,7 +24,7 @@ architecture Behavioral of top_riscv is
                 RegWrite    : out STD_LOGIC;
                 Jump        : out STD_LOGIC;
                 ImmSrc      : out STD_LOGIC_VECTOR(1 downto 0);
-                ALUControl  : out STD_LOGIC_VECTOR(2 downto 0));
+                ALUControl  : out STD_LOGIC_VECTOR(3 downto 0));
     end component;
 
     component datapath
@@ -34,7 +34,7 @@ architecture Behavioral of top_riscv is
                 ALUSrc      : in  STD_LOGIC;
                 RegWrite    : in  STD_LOGIC;
                 ImmSrc      : in  STD_LOGIC_VECTOR(1   downto 0);
-                ALUControl  : in  STD_LOGIC_VECTOR(2   downto 0);
+                ALUControl  : in  STD_LOGIC_VECTOR(3   downto 0);
                 Zero        : out STD_LOGIC;
                 PC          : out STD_LOGIC_VECTOR(31 downto 0);
                 Instr       : in  STD_LOGIC_VECTOR(31 downto 0);
@@ -50,7 +50,7 @@ architecture Behavioral of top_riscv is
     signal PCSrc        : STD_LOGIC;
     signal ResultSrc    : STD_LOGIC_VECTOR(1 downto 0);
     signal ImmSrc       : STD_LOGIC_VECTOR(1 downto 0);
-    signal ALUControl   : STD_LOGIC_VECTOR(2 downto 0);
+    signal ALUControl   : STD_LOGIC_VECTOR(3 downto 0);
 
 begin
     c: control_unit     port map(Instr(6 downto 0), Instr(14 downto 12), Instr(30), Zero, ResultSrc, MemWrite, PCSrc, ALUSrc, RegWrite, Jump, ImmSrc, ALUControl);

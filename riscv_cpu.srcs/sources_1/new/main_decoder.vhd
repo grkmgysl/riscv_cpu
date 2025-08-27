@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
 entity main_decoder is
-    port(   op          : in  STD_LOGIC_VECTOR(6 downto 0);
+    port(   op          : in  STD_LOGIC_VECTOR(6 downto 0); --opcode
             ResultSrc   : out STD_LOGIC_VECTOR(1 downto 0);
             MemWrite    : out STD_LOGIC;
             Branch      : out STD_LOGIC;
