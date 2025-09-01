@@ -4,19 +4,19 @@ use IEEE.STD_LOGIC_1164.all;
 
 entity top is
     port(   clk, reset  : in     STD_LOGIC;
-            WriteData   : buffer STD_LOGIC_VECTOR(31 downto 0);
-            DataAdr     : buffer STD_LOGIC_VECTOR(31 downto 0);
-            MemWrite    : buffer STD_LOGIC);
+            WriteData   : inout STD_LOGIC_VECTOR(31 downto 0);--was buffer
+            DataAdr     : inout STD_LOGIC_VECTOR(31 downto 0);--was buffer
+            MemWrite    : inout STD_LOGIC);--was buffer
 end top;
 
 architecture Behavioral of top is
     component top_riscv
         port(   clk, reset  : in  STD_LOGIC;
-                PC          : out STD_LOGIC_VECTOR(31 downto 0);
+                PC          : inout STD_LOGIC_VECTOR(31 downto 0);
                 Instr       : in  STD_LOGIC_VECTOR(31 downto 0);
                 MemWrite    : out STD_LOGIC;
-                ALUResult   : out STD_LOGIC_VECTOR(31 downto 0);
-                WriteData   : out STD_LOGIC_VECTOR(31 downto 0);
+                ALUResult   : inout STD_LOGIC_VECTOR(31 downto 0);
+                WriteData   : inout STD_LOGIC_VECTOR(31 downto 0);
                 ReadData    : in  STD_LOGIC_VECTOR(31 downto 0));
     end component;
 

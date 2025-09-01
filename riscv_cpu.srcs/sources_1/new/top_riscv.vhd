@@ -3,11 +3,11 @@ use IEEE.STD_LOGIC_1164.all;
 
 entity top_riscv is
     port(   clk, reset  : in  STD_LOGIC;
-            PC          : out STD_LOGIC_VECTOR(31 downto 0);
+            PC          : inout STD_LOGIC_VECTOR(31 downto 0);
             Instr       : in  STD_LOGIC_VECTOR(31 downto 0);
             MemWrite    : out STD_LOGIC;
-            ALUResult   : out STD_LOGIC_VECTOR(31 downto 0);
-            WriteData   : out STD_LOGIC_VECTOR(31 downto 0);
+            ALUResult   : inout STD_LOGIC_VECTOR(31 downto 0);
+            WriteData   : inout STD_LOGIC_VECTOR(31 downto 0);
             ReadData    : in  STD_LOGIC_VECTOR(31 downto 0));
 end top_riscv;
 
@@ -22,7 +22,7 @@ architecture Behavioral of top_riscv is
                 PCSrc       : out STD_LOGIC;
                 ALUSrc      : out STD_LOGIC;
                 RegWrite    : out STD_LOGIC;
-                Jump        : out STD_LOGIC;
+                Jump        : inout STD_LOGIC;
                 ImmSrc      : out STD_LOGIC_VECTOR(1 downto 0);
                 ALUControl  : out STD_LOGIC_VECTOR(3 downto 0));
     end component;
@@ -36,10 +36,10 @@ architecture Behavioral of top_riscv is
                 ImmSrc      : in  STD_LOGIC_VECTOR(1   downto 0);
                 ALUControl  : in  STD_LOGIC_VECTOR(3   downto 0);
                 Zero        : out STD_LOGIC;
-                PC          : out STD_LOGIC_VECTOR(31 downto 0);
+                PC          : inout STD_LOGIC_VECTOR(31 downto 0);
                 Instr       : in  STD_LOGIC_VECTOR(31 downto 0);
-                ALUResult   : out STD_LOGIC_VECTOR(31 downto 0);
-                WriteData   : out STD_LOGIC_VECTOR(31 downto 0);
+                ALUResult   : inout STD_LOGIC_VECTOR(31 downto 0);
+                WriteData   : inout STD_LOGIC_VECTOR(31 downto 0);
                 ReadData    : in  STD_LOGIC_VECTOR(31 downto 0));
     end component;
 

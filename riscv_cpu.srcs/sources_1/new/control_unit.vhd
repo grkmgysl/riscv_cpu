@@ -10,7 +10,7 @@ entity control_unit is
             PCSrc       : out       STD_LOGIC;
             ALUSrc      : out       STD_LOGIC;
             RegWrite    : out       STD_LOGIC;
-            Jump        : buffer    STD_LOGIC;
+            Jump        : inout    STD_LOGIC; --was buffer
             ImmSrc      : out       STD_LOGIC_VECTOR(1 downto 0);
             ALUControl  : out       STD_LOGIC_VECTOR(3 downto 0));
 end control_unit;

@@ -1,0 +1,21 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../riscv_cpu.srcs/sources_1/new/adder.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/alu.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/alu_decoder.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/control_unit.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/data_memory.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/datapath.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/extend_unit.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/ff_with_res.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/inst_memory.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/main_decoder.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/mux2.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/mux4.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/reg_file.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/top.vhd" \
+"../../../../riscv_cpu.srcs/sources_1/new/top_riscv.vhd" \
+"../../../../riscv_cpu.srcs/sim_1/new/riscv_tb.vhd" \
+
+# Do not sort compile order
+nosort

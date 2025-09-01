@@ -13,10 +13,10 @@ entity datapath is
             ImmSrc      :    in    STD_LOGIC_VECTOR(1  downto 0);
             ALUControl  :    in    STD_LOGIC_VECTOR(3    downto 0);
             Zero        :    out    STD_LOGIC;
-            PC          :    buffer STD_LOGIC_VECTOR(31 downto 0);
+            PC          :    inout STD_LOGIC_VECTOR(31 downto 0);--was buffer
             Instr       :    in   STD_LOGIC_VECTOR(31 downto 0);
-            ALUResult   :    buffer   STD_LOGIC_VECTOR(31 downto 0);
-            WriteData   :    buffer   STD_LOGIC_VECTOR(31 downto 0);
+            ALUResult   :    inout   STD_LOGIC_VECTOR(31 downto 0);--was buffer
+            WriteData   :    inout   STD_LOGIC_VECTOR(31 downto 0);--was buffer
             ReadData    :    in   STD_LOGIC_VECTOR(31  downto 0)
      );
 end datapath;
@@ -66,8 +66,8 @@ architecture Behavioral of datapath is
     component alu
         port(   a               : in     STD_LOGIC_VECTOR(31 downto 0);  
                 b               : in     STD_LOGIC_VECTOR(31 downto 0);
-                alu_control     : in     STD_LOGIC_VECTOR(2 downto 0); 
-                alu_result      : buffer STD_LOGIC_VECTOR(31 downto 0);  
+                alu_control     : in     STD_LOGIC_VECTOR(3 downto 0); 
+                alu_result      : inout STD_LOGIC_VECTOR(31 downto 0);  
                 zero            : out    STD_LOGIC);
     end component;
 
