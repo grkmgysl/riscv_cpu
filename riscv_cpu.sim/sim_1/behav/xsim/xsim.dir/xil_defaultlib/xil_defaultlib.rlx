@@ -11,7 +11,7 @@ D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/data_memory.vhd,175328
 D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd,1756715751,vhdl,,,,datapath,,,,,,,,
 D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd,1752678979,vhdl,,,,extend_unit,,,,,,,,
 D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/ff_with_res.vhd,1753272135,vhdl,,,,ff_with_res,,,,,,,,
-D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/inst_memory.vhd,1752677147,vhdl,,,,inst_memory,,,,,,,,
+D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/inst_memory.vhd,1756739522,vhdl,,,,inst_memory,,,,,,,,
 D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/main_decoder.vhd,1756305952,vhdl,,,,main_decoder,,,,,,,,
 D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux2.vhd,1752677488,vhdl,,,,mux2,,,,,,,,
 D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux4.vhd,1752677476,vhdl,,,,mux4,,,,,,,,
