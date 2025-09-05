@@ -15,24 +15,22 @@ entity data_memory is
 end data_memory;
 
 architecture Behavioral of data_memory is
-
+    -- 64 x 32-bit data memory
+    type ramtype is array (63 downto 0) of STD_LOGIC_VECTOR(31 downto 0);
+    signal data_mem : ramtype := (others => (others => '0'));
 begin
 
-    process is
-        type ramtype is  array (63 downto 0) of STD_LOGIC_VECTOR(31 downto 0); -- 64*32 bit ram
-        variable mem: ramtype;
+    -- synchronous write, asynchronous read
+    process(clk)
     begin
-        -- read or write memory
-        loop
-           if rising_edge(clk) then
-                if (we = '1') then 
-                    mem(to_integer(unsigned(address(7 downto 2)))) := wd;
-                end if;
+        if rising_edge(clk) then
+            if (we = '1') then 
+                data_mem(to_integer(unsigned(address(7 downto 2)))) <= wd;
             end if;
-            rd <= mem(to_integer(unsigned(address(7 downto 2))));
-            wait on clk, address; --The Wait On statement will pause the process until one of the specified signals change:
-        end loop;
+        end if;
     end process;
 
+    -- async read
+    rd <= data_mem(to_integer(unsigned(address(7 downto 2))));
 
 end Behavioral;
