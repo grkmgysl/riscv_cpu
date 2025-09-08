@@ -1,6 +1,6 @@
 Time resolution is 1 ps
 ERROR: Index 64 out of bound 63 downto 0
-Time: 63500 ns  Iteration: 2  Process: /riscv_tb/dut/imem1/line__31
+Time: 59500 ns  Iteration: 2  Process: /riscv_tb/dut/imem1/line__59
   File: D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/inst_memory.vhd
 
-HDL Line: D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/inst_memory.vhd:32
+HDL Line: D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/inst_memory.vhd:60

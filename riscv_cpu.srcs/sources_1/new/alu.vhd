@@ -12,7 +12,9 @@ entity alu is
             b               : in     STD_LOGIC_VECTOR(31 downto 0);
             alu_control     : in     STD_LOGIC_VECTOR(3 downto 0); 
             alu_result      : inout STD_LOGIC_VECTOR(31 downto 0);  --was buffer
-            zero            : out    STD_LOGIC); 
+            zero            : out    STD_LOGIC;
+            lt              : out    STD_LOGIC;
+            ltu             : out    STD_LOGIC); 
            
 end alu;
 
@@ -47,12 +49,16 @@ begin
         end case ;
 
         -- zero flag check after ALU operation
-        if alu_result = x"00000000" then zero <= '1';
-        else zero <= '0';
-        end if;
+        --if alu_result = x"00000000" then zero <= '1';
+        --else zero <= '0';
+        --end if;
         
     end process;
+    
+    zero <= '1' when alu_result = x"00000000" else '0';
 
+    lt  <= '1' when signed(a) < signed(b) else '0'; -- for blt
+    ltu <= '1' when unsigned(a) < unsigned(b) else '0'; -- for bltu
   
 
 end Behavioral;

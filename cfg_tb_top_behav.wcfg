@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="10.128460 us"></ZoomEndTime>
-      <Cursor1Time time="0.406703 us"></Cursor1Time>
+      <ZoomEndTime time="15.320783 us"></ZoomEndTime>
+      <Cursor1Time time="3.057208 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="100"></ValueColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="18" />
+   <WVObjectSize size="27" />
    <wvobject fp_name="/riscv_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -176,5 +176,42 @@
    <wvobject fp_name="/riscv_tb/dut/dmem1/wd" type="array">
       <obj_property name="ElementShortName">wd[31:0]</obj_property>
       <obj_property name="ObjectShortName">wd[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/riscv_tb/dut/rvsingle/c/Zero" type="logic">
+      <obj_property name="ElementShortName">Zero</obj_property>
+      <obj_property name="ObjectShortName">Zero</obj_property>
+   </wvobject>
+   <wvobject fp_name="/riscv_tb/dut/rvsingle/c/PCSrc" type="logic">
+      <obj_property name="ElementShortName">PCSrc</obj_property>
+      <obj_property name="ObjectShortName">PCSrc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/riscv_tb/dut/rvsingle/c/Jump" type="logic">
+      <obj_property name="ElementShortName">Jump</obj_property>
+      <obj_property name="ObjectShortName">Jump</obj_property>
+   </wvobject>
+   <wvobject fp_name="/riscv_tb/dut/rvsingle/c/Branch" type="logic">
+      <obj_property name="ElementShortName">Branch</obj_property>
+      <obj_property name="ObjectShortName">Branch</obj_property>
+   </wvobject>
+   <wvobject fp_name="/riscv_tb/dut/rvsingle/dp/PCTarget" type="array">
+      <obj_property name="ElementShortName">PCTarget[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PCTarget[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/riscv_tb/dut/rvsingle/dp/ImmExt" type="array">
+      <obj_property name="ElementShortName">ImmExt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ImmExt[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/riscv_tb/dut/rvsingle/c/ad/ALUOp" type="array">
+      <obj_property name="ElementShortName">ALUOp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUOp[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/riscv_tb/dut/rvsingle/c/ad/funct3" type="array">
+      <obj_property name="ElementShortName">funct3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/riscv_tb/dut/rvsingle/c/ad/funct7b5" type="logic">
+      <obj_property name="ElementShortName">funct7b5</obj_property>
+      <obj_property name="ObjectShortName">funct7b5</obj_property>
    </wvobject>
 </wave_config>

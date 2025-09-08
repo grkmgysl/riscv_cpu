@@ -13,6 +13,8 @@ entity datapath is
             ImmSrc      :    in    STD_LOGIC_VECTOR(1  downto 0);
             ALUControl  :    in    STD_LOGIC_VECTOR(3    downto 0);
             Zero        :    out    STD_LOGIC;
+            lt              : out    STD_LOGIC;
+            ltu             : out    STD_LOGIC;
             PC          :    inout STD_LOGIC_VECTOR(31 downto 0);--was buffer
             Instr       :    in   STD_LOGIC_VECTOR(31 downto 0);
             ALUResult   :    inout   STD_LOGIC_VECTOR(31 downto 0);--was buffer
@@ -68,7 +70,9 @@ architecture Behavioral of datapath is
                 b               : in     STD_LOGIC_VECTOR(31 downto 0);
                 alu_control     : in     STD_LOGIC_VECTOR(3 downto 0); 
                 alu_result      : inout STD_LOGIC_VECTOR(31 downto 0);  
-                zero            : out    STD_LOGIC);
+                zero            : out    STD_LOGIC;
+                lt              : out    STD_LOGIC;
+                ltu             : out    STD_LOGIC);
     end component;
 
     signal PCNext   : STD_LOGIC_VECTOR(31 downto 0);
@@ -93,7 +97,7 @@ begin
 
     -- ALU logic
     srcbmux: mux2       generic map(32) port map( WriteData, ImmExt, ALUSrc, SrcB);
-    mainalu: alu        port map(SrcA, SrcB, ALUControl, ALUResult, Zero);
+    mainalu: alu        port map(SrcA, SrcB, ALUControl, ALUResult, Zero, lt, ltu);
     resultmux: mux4     generic map(32) port map(ALUResult, ReadData,  PCPlus4, PCPlus4, ResultSrc, Result); --d3 is not used so I sent PCPlus4 again
 
 

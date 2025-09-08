@@ -5,6 +5,8 @@ entity control_unit is
             funct3      : in        STD_LOGIC_VECTOR(2 downto 0);
             funct7b5    : in        STD_LOGIC;
             Zero        : in        STD_LOGIC;
+            lt              : in    STD_LOGIC;
+            ltu             : in    STD_LOGIC;
             ResultSrc   : out       STD_LOGIC_VECTOR(1 downto 0);
             MemWrite    : out       STD_LOGIC;
             PCSrc       : out       STD_LOGIC;
@@ -37,11 +39,24 @@ component alu_decoder
             ALUControl  : out STD_LOGIC_VECTOR(3 downto 0));
 end component;
 
-    signal ALUOp    : STD_LOGIC_VECTOR(1 downto 0);
-    signal Branch   : STD_LOGIC;
+    signal ALUOp            : STD_LOGIC_VECTOR(1 downto 0);
+    signal Branch           : STD_LOGIC;
+    signal take_branch      : STD_LOGIC;
+
 begin
     md: main_decoder     port map(op, ResultSrc, MemWrite, Branch, ALUSrc, RegWrite, Jump, ImmSrc, ALUOp);
     ad: alu_decoder      port map(op(5), funct3, funct7b5, ALUOp, ALUControl); --op(5) means opcode5
 
-    PCSrc <= (Branch and Zero) or Jump;
+    with funct3 select
+        take_branch <=  Zero      when "000", -- BEQ
+                        not Zero  when "001", -- BNE
+                        lt        when "100", -- BLT
+                        not lt    when "101", -- BGE
+                        ltu       when "110", -- BLTU
+                        not ltu   when "111", -- BGEU
+                        '0'       when others;
+
+    PCSrc <= (Branch and take_branch) or Jump;
+
+
 end; 

@@ -17,6 +17,8 @@ architecture Behavioral of top_riscv is
                 funct3      : in  STD_LOGIC_VECTOR(2 downto 0);
                 funct7b5    : in  STD_LOGIC;
                 Zero        : in  STD_LOGIC;
+                lt              : in    STD_LOGIC;
+                ltu             : in    STD_LOGIC;
                 ResultSrc   : out STD_LOGIC_VECTOR(1 downto 0);
                 MemWrite    : out STD_LOGIC;
                 PCSrc       : out STD_LOGIC;
@@ -36,6 +38,8 @@ architecture Behavioral of top_riscv is
                 ImmSrc      : in  STD_LOGIC_VECTOR(1   downto 0);
                 ALUControl  : in  STD_LOGIC_VECTOR(3   downto 0);
                 Zero        : out STD_LOGIC;
+                lt              : out    STD_LOGIC;
+                ltu             : out    STD_LOGIC;
                 PC          : inout STD_LOGIC_VECTOR(31 downto 0);
                 Instr       : in  STD_LOGIC_VECTOR(31 downto 0);
                 ALUResult   : inout STD_LOGIC_VECTOR(31 downto 0);
@@ -51,10 +55,12 @@ architecture Behavioral of top_riscv is
     signal ResultSrc    : STD_LOGIC_VECTOR(1 downto 0);
     signal ImmSrc       : STD_LOGIC_VECTOR(1 downto 0);
     signal ALUControl   : STD_LOGIC_VECTOR(3 downto 0);
+    signal lt              :     STD_LOGIC;
+    signal            ltu      : STD_LOGIC;
 
 begin
-    c: control_unit     port map(Instr(6 downto 0), Instr(14 downto 12), Instr(30), Zero, ResultSrc, MemWrite, PCSrc, ALUSrc, RegWrite, Jump, ImmSrc, ALUControl);
+    c: control_unit     port map(Instr(6 downto 0), Instr(14 downto 12), Instr(30), Zero, lt, ltu, ResultSrc, MemWrite, PCSrc, ALUSrc, RegWrite, Jump, ImmSrc, ALUControl);
 
-    dp: datapath        port map(clk, reset, ResultSrc, PCSrc, ALUSrc, RegWrite, ImmSrc, ALUControl, Zero, PC, Instr, ALUResult, WriteData, ReadData);
+    dp: datapath        port map(clk, reset, ResultSrc, PCSrc, ALUSrc, RegWrite, ImmSrc, ALUControl, Zero, lt, ltu, PC, Instr, ALUResult, WriteData, ReadData);
 
 end;
