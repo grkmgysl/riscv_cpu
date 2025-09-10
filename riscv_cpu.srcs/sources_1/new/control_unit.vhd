@@ -9,10 +9,11 @@ entity control_unit is
             ltu             : in    STD_LOGIC;
             ResultSrc   : out       STD_LOGIC_VECTOR(1 downto 0);
             MemWrite    : out       STD_LOGIC;
-            PCSrc       : out       STD_LOGIC;
+            PCSrc       : out       STD_LOGIC_VECTOR(1 downto 0);
             ALUSrc      : out       STD_LOGIC;
             RegWrite    : out       STD_LOGIC;
-            Jump        : inout    STD_LOGIC; --was buffer
+            Jal         : inout    STD_LOGIC; --was buffer
+            Jalr        : inout    STD_LOGIC;
             ImmSrc      : out       STD_LOGIC_VECTOR(1 downto 0);
             ALUControl  : out       STD_LOGIC_VECTOR(3 downto 0));
 end control_unit;
@@ -26,7 +27,8 @@ component main_decoder
             Branch      : out STD_LOGIC;
             ALUSrc      : out STD_LOGIC;
             RegWrite    : out STD_LOGIC;
-            Jump        : out STD_LOGIC;
+            Jal         : out    STD_LOGIC; --was buffer
+            Jalr        : out    STD_LOGIC;
             ImmSrc      : out STD_LOGIC_VECTOR(1 downto 0);
             ALUOp       : out STD_LOGIC_VECTOR(1 downto 0));
 end component;
@@ -44,7 +46,7 @@ end component;
     signal take_branch      : STD_LOGIC;
 
 begin
-    md: main_decoder     port map(op, ResultSrc, MemWrite, Branch, ALUSrc, RegWrite, Jump, ImmSrc, ALUOp);
+    md: main_decoder     port map(op, ResultSrc, MemWrite, Branch, ALUSrc, RegWrite, Jal, Jalr, ImmSrc, ALUOp);
     ad: alu_decoder      port map(op(5), funct3, funct7b5, ALUOp, ALUControl); --op(5) means opcode5
 
     with funct3 select
@@ -56,7 +58,10 @@ begin
                         not ltu   when "111", -- BGEU
                         '0'       when others;
 
-    PCSrc <= (Branch and take_branch) or Jump;
-
+    --PCSrc <= (Branch and take_branch) or Jump;
+        PCSrc <=    "01" when Jal = '1' else                        -- jump target (PC+imm)
+                    "01" when (Branch and take_branch) = '1' else   -- branch taken
+                    "10" when Jalr = '1' else                        -- rs1 + imm from ALU
+                    "00";                           -- fallthrough (PC+4)
 
 end; 

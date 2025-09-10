@@ -7,7 +7,7 @@ use IEEE.STD_LOGIC_ARITH.all;
 entity datapath is
     Port (  clk, reset  :    in STD_LOGIC;
             ResultSrc   :    in    STD_LOGIC_VECTOR(1   downto 0);
-            PCSrc       :    in    STD_LOGIC;
+            PCSrc       :    in    STD_LOGIC_VECTOR(1 downto 0);
             ALUSrc      :    in    STD_LOGIC;
             RegWrite    :    in    STD_LOGIC;
             ImmSrc      :    in    STD_LOGIC_VECTOR(1  downto 0);
@@ -82,14 +82,16 @@ architecture Behavioral of datapath is
     signal SrcA     : STD_LOGIC_VECTOR(31 downto 0);
     signal SrcB     : STD_LOGIC_VECTOR(31 downto 0);
     signal Result   : STD_LOGIC_VECTOR(31 downto 0);
+    signal PCJalr   : STD_LOGIC_VECTOR(31 downto 0);
 
 begin
 
+    PCJalr <= ALUResult and x"FFFFFFFE";
     -- next PC logic
     pcreg: ff_with_res  generic map(32) port map(clk, reset, PCNext, PC);
     pcadd4: adder       port map(PC, X"00000004", PCPlus4);
     pcaddbranch: adder  port map(PC, ImmExt, PCTarget);
-    pcmux: mux2         generic map(32) port map(PCPlus4, PCTarget, PCSrc,  PCNext);
+    pcmux: mux4         generic map(32) port map(PCPlus4, PCTarget, PCJalr, PCJalr, PCSrc,  PCNext); --d3 is not used so I sent PCJarl again
 
     -- register file logic
     rf: reg_file        port map(clk, RegWrite, Instr(19 downto 15), Instr(24 downto 20), Instr(11 downto 7),Result, SrcA, WriteData);

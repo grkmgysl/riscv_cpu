@@ -21,10 +21,11 @@ architecture Behavioral of top_riscv is
                 ltu             : in    STD_LOGIC;
                 ResultSrc   : out STD_LOGIC_VECTOR(1 downto 0);
                 MemWrite    : out STD_LOGIC;
-                PCSrc       : out STD_LOGIC;
+                PCSrc       : out STD_LOGIC_VECTOR(1 downto 0);
                 ALUSrc      : out STD_LOGIC;
                 RegWrite    : out STD_LOGIC;
-                Jump        : inout STD_LOGIC;
+                Jal         : inout    STD_LOGIC; --was buffer
+                Jalr        : inout    STD_LOGIC;
                 ImmSrc      : out STD_LOGIC_VECTOR(1 downto 0);
                 ALUControl  : out STD_LOGIC_VECTOR(3 downto 0));
     end component;
@@ -32,7 +33,7 @@ architecture Behavioral of top_riscv is
     component datapath
         port(   clk, reset  : in  STD_LOGIC;
                 ResultSrc   : in  STD_LOGIC_VECTOR(1   downto 0);
-                PCSrc       : in  STD_LOGIC;
+                PCSrc       : in  STD_LOGIC_VECTOR(1 downto 0);
                 ALUSrc      : in  STD_LOGIC;
                 RegWrite    : in  STD_LOGIC;
                 ImmSrc      : in  STD_LOGIC_VECTOR(1   downto 0);
@@ -49,9 +50,10 @@ architecture Behavioral of top_riscv is
 
     signal ALUSrc       : STD_LOGIC;
     signal RegWrite     : STD_LOGIC;
-    signal Jump         : STD_LOGIC;
+    signal Jal          : STD_LOGIC;
+    signal Jalr         : STD_LOGIC;
     signal Zero         : STD_LOGIC;
-    signal PCSrc        : STD_LOGIC;
+    signal PCSrc        : STD_LOGIC_VECTOR(1 downto 0);
     signal ResultSrc    : STD_LOGIC_VECTOR(1 downto 0);
     signal ImmSrc       : STD_LOGIC_VECTOR(1 downto 0);
     signal ALUControl   : STD_LOGIC_VECTOR(3 downto 0);
@@ -59,7 +61,7 @@ architecture Behavioral of top_riscv is
     signal            ltu      : STD_LOGIC;
 
 begin
-    c: control_unit     port map(Instr(6 downto 0), Instr(14 downto 12), Instr(30), Zero, lt, ltu, ResultSrc, MemWrite, PCSrc, ALUSrc, RegWrite, Jump, ImmSrc, ALUControl);
+    c: control_unit     port map(Instr(6 downto 0), Instr(14 downto 12), Instr(30), Zero, lt, ltu, ResultSrc, MemWrite, PCSrc, ALUSrc, RegWrite, Jal, Jalr, ImmSrc, ALUControl);
 
     dp: datapath        port map(clk, reset, ResultSrc, PCSrc, ALUSrc, RegWrite, ImmSrc, ALUControl, Zero, lt, ltu, PC, Instr, ALUResult, WriteData, ReadData);
 

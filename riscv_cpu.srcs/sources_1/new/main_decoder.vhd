@@ -8,27 +8,30 @@ entity main_decoder is
             Branch      : out STD_LOGIC;
             ALUSrc      : out STD_LOGIC;
             RegWrite    : out STD_LOGIC;
-            Jump        : out STD_LOGIC;
+            --Jump        : out STD_LOGIC;
+            Jal         : out STD_LOGIC;
+            Jalr        : out STD_LOGIC;
             ImmSrc      : out STD_LOGIC_VECTOR(1 downto 0);
             ALUOp       : out STD_LOGIC_VECTOR(1 downto 0));
 end main_decoder;
 
 architecture behave of main_decoder is
-    signal controls: STD_LOGIC_VECTOR(10 downto 0);
+    signal controls: STD_LOGIC_VECTOR(11 downto 0);
 
 begin
     process(op) begin
         case op is
-            when "0000011" => controls <= "10010010000"; -- lw
-            when "0100011" => controls <= "00111000000"; -- sw
-            when "0110011" => controls <= "1--00000100"; -- R–type
-            when "1100011" => controls <= "01000001010"; -- beq
-            when "0010011" => controls <= "10010000100"; -- I–type ALU
-            when "1101111" => controls <= "11100100001"; -- jal
-            when others    => controls <= "-----------"; -- not valid
+            when "0000011" => controls <= "100100100000"; -- lw
+            when "0100011" => controls <= "001110000000"; -- sw
+            when "0110011" => controls <= "1--000001000"; -- R–type
+            when "1100011" => controls <= "010000010100"; -- beq
+            when "0010011" => controls <= "100100001000"; -- I–type ALU
+            when "1101111" => controls <= "111001000010"; -- jal
+            when "1100111" => controls <= "100101000001"; -- jalr
+            when others    => controls <= "------------"; -- not valid
         end case;
     end process;
 
-    (RegWrite, ImmSrc(1), ImmSrc(0), ALUSrc, MemWrite,ResultSrc(1), ResultSrc(0), Branch, ALUOp(1), ALUOp(0), Jump) <= controls;
+    (RegWrite, ImmSrc(1), ImmSrc(0), ALUSrc, MemWrite, ResultSrc(1), ResultSrc(0), Branch, ALUOp(1), ALUOp(0), jal, jalr) <= controls;
 
 end; 
