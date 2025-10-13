@@ -18,38 +18,72 @@ type ramtype is  array (63 downto 0) of STD_LOGIC_VECTOR(31 downto 0); -- 64*32 
     
 -- ROM Content Initialization (each line is 32-bit instruction)
 signal mem : ramtype := (
-        -- Init some registers
-        0   => x"00500093",  -- addi x1, x0, 5      ; x1 = 5
-        1   => x"00500113",  -- addi x2, x0, 5      ; x2 = 5
-        2   => x"00700193",  -- addi x3, x0, 7      ; x3 = 7
+        ------------------------------------------------------------
+        -- 1. Initialization
+        ------------------------------------------------------------
+        0  => x"00000013",  -- nop (addi x0, x0, 0)
+        1  => x"00a00093",  -- addi x1, x0, 10       ; x1 = 10
+        2  => x"01400113",  -- addi x2, x0, 20       ; x2 = 20
+        3  => x"01e00193",  -- addi x3, x0, 30       ; x3 = 30
+        4  => x"00000213",  -- addi x4, x0, 0        ; x4 = 0
 
-        -- BEQ test: x1 == x2 → should branch
-        3   => x"00208663",  -- beq  x1, x2, +12    ; jump to PC+12 → instruction 6
-        4   => x"00A00213",  -- addi x4, x0, 10     ; skipped if branch taken
-        5   => x"00B00293",  -- addi x5, x0, 11     ; skipped if branch taken
+        ------------------------------------------------------------
+        -- 2. ALU Tests
+        ------------------------------------------------------------
+        5  => x"002082b3",  -- add x5, x1, x2        ; x5 = 30
+        6  => x"40208333",  -- sub x6, x1, x2        ; x6 = -10
+        7  => x"0020e3b3",  -- or  x7, x1, x2        ; x7 = 30
+        8  => x"0020c433",  -- xor x8, x1, x2        ; x8 = 30 
+        9  => x"0020a4b3",  -- slt x9, x1, x2        ; x9 = 1 if 10<20
+        10 => x"0020b533",  -- sltu x10, x1, x2      ; unsigned compare
+        11 => x"00209633",  -- sll x12, x1, x2       ; shift left
+        12 => x"0020d6b3",  -- srl x13, x1, x2       ; logical right shift
+        13 => x"4020d733",  -- sra x14, x1, x2       ; arithmetic right shift
 
-        -- Arrive here from BEQ
-        6   => x"00C00313",  -- addi x6, x0, 12     ; executed only if branch taken
+        ------------------------------------------------------------
+        -- 3. Immediate Versions
+        ------------------------------------------------------------
+        14 => x"0020e813",  -- ori x16, x1, 2
+        15 => x"0040c893",  -- xori x17, x1, 4
+        16 => x"0050a913",  -- slti x18, x1, 5
+        17 => x"0060b993",  -- sltiu x19, x1, 6
+        18 => x"00109a13",  -- slli x20, x1, 1
+        19 => x"0010da93",  -- srli x21, x1, 1
+        20 => x"4010db13",  -- srai x22, x1, 1
 
-        -- BNE test: x1 != x3 → should branch
-        7   => x"00309463",  -- bne  x1, x3, +8     ; jump to PC+8 → instruction 9
-        8   => x"00D00393",  -- addi x7, x0, 13     ; skipped
+        ------------------------------------------------------------
+        -- 4. Memory Tests
+        ------------------------------------------------------------
+        21 => x"00112023",  -- sw x1, 0(x2)
+        22 => x"00012183",  -- lw x3, 0(x2)
+        23 => x"00111123",  -- sh x1, 2(x2)
+        24 => x"00110a23",  -- sb x1, 16(x2)
+        25 => x"0101c203",  -- lb x4, 16(x1)
+        26 => x"0101e283",  -- lbu x5, 16(x1)
 
-        -- Arrive here from BNE
-        9   => x"00E00413",  -- addi x8, x0, 14
+        ------------------------------------------------------------
+        -- 5. Branch Tests
+        ------------------------------------------------------------
+        27 => x"00208463",  -- beq x1, x2, +8         ; should not branch
+        28 => x"00209463",  -- bne x1, x2, +8         ; should branch (x1!=x2)
+        29 => x"00000013",  -- nop (skipped if branch taken)
+        30 => x"00000013",  -- nop
+        31 => x"00000013",  -- nop
+        32 => x"0020c463",  -- blt x1, x2, +8         ; should branch (10<20)
+        33 => x"0020d463",  -- bge x1, x2, +8         ; should not branch
 
-        -- JAL test: unconditional jump
-        10  => x"008000EF",  -- jal  x1, +4         ; jump to 11+1=12, save return addr in x1
-        11  => x"00F00493",  -- addi x9, x0, 15     ; skipped
+        ------------------------------------------------------------
+        -- 6. Jump Tests
+        ------------------------------------------------------------
+        34 => x"008000ef",  -- jal x1, +4             ; jump +4 (skip next)
+        35 => x"00000013",  -- nop (skipped)
+        36 => x"00000013",  -- nop (executed after jump)
+        37 => x"000080e7",  -- jalr x0, 0(x1)         ; jump to address in x1 (return-like)
 
-        -- Target of JAL
-        12  => x"01000513",  -- addi x10, x0, 16
-
-        -- JALR test: jump via register (use x10=16)
-        13  => x"000500E7",  -- jalr x1, 0(x10)     ; jump to addr in x10 (16)
-
-        -- Target of JALR (PC=16)
-        14  => x"01100593",  -- addi x11, x0, 17
+        ------------------------------------------------------------
+        -- 7. End: Infinite loop
+        ------------------------------------------------------------
+        38 => x"0000006f",  -- jal x0, 0              ; infinite loop
 
         others => (others => '0')
     );

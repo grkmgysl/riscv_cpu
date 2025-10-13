@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Wed Jul 23 17:13:11 2025
-# Process ID: 9836
+# Start of session at: Sat Oct  4 13:42:25 2025
+# Process ID: 3708
 # Current directory: D:/vivado_projects/riscv_cpu/riscv_cpu.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: D:/vivado_projects/riscv_cpu/riscv_cpu.runs/synth_1/top.vds
@@ -17,90 +17,404 @@
 # CPU Physical cores:4
 # CPU Logical cores :8
 # Host memory       :17072 MB
-# Swap memory       :2550 MB
-# Total Virtual     :19622 MB
-# Available Virtual :8170 MB
+# Swap memory       :5368 MB
+# Total Virtual     :22441 MB
+# Available Virtual :9753 MB
 #-----------------------------------------------------------
 source top.tcl -notrace
-create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 515.598 ; gain = 202.344
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 512.660 ; gain = 197.352
 Command: synth_design -top top -part xc7a100tcsg324-2L
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 10356
+INFO: [Synth 8-7075] Helper process launched with PID 20352
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 970.398 ; gain = 451.832
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 970.367 ; gain = 453.727
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-10729] formal port 'jump' of mode 'out' cannot be associated with actual port 'jump' of mode 'buffer' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:43]
-WARNING: [Synth 8-10729] formal port 'q' of mode 'out' cannot be associated with actual port 'pc' of mode 'buffer' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:85]
-WARNING: [Synth 8-10729] formal port 'rd2' of mode 'out' cannot be associated with actual port 'writedata' of mode 'buffer' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:91]
-WARNING: [Synth 8-10729] formal port 'memwrite' of mode 'out' cannot be associated with actual port 'memwrite' of mode 'buffer' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:42]
-WARNING: [Synth 8-10729] formal port 'aluresult' of mode 'out' cannot be associated with actual port 'dataadr' of mode 'buffer' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:42]
-WARNING: [Synth 8-10729] formal port 'writedata' of mode 'out' cannot be associated with actual port 'writedata' of mode 'buffer' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:42]
 INFO: [Synth 8-638] synthesizing module 'top' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:12]
 INFO: [Synth 8-3491] module 'top_riscv' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top_riscv.vhd:4' bound to instance 'rvsingle' of component 'top_riscv' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:42]
 INFO: [Synth 8-638] synthesizing module 'top_riscv' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top_riscv.vhd:14]
-INFO: [Synth 8-3491] module 'control_unit' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:3' bound to instance 'c' of component 'control_unit' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top_riscv.vhd:56]
-INFO: [Synth 8-638] synthesizing module 'control_unit' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:18]
-INFO: [Synth 8-3491] module 'main_decoder' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/main_decoder.vhd:4' bound to instance 'md' of component 'main_decoder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:43]
-INFO: [Synth 8-638] synthesizing module 'main_decoder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/main_decoder.vhd:16]
-INFO: [Synth 8-256] done synthesizing module 'main_decoder' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/main_decoder.vhd:16]
-INFO: [Synth 8-3491] module 'alu_decoder' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu_decoder.vhd:3' bound to instance 'ad' of component 'alu_decoder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:44]
+INFO: [Synth 8-3491] module 'control_unit' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:3' bound to instance 'c' of component 'control_unit' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top_riscv.vhd:64]
+INFO: [Synth 8-638] synthesizing module 'control_unit' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:21]
+INFO: [Synth 8-3491] module 'main_decoder' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/main_decoder.vhd:4' bound to instance 'md' of component 'main_decoder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:49]
+INFO: [Synth 8-638] synthesizing module 'main_decoder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/main_decoder.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'main_decoder' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/main_decoder.vhd:18]
+INFO: [Synth 8-3491] module 'alu_decoder' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu_decoder.vhd:3' bound to instance 'ad' of component 'alu_decoder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:50]
 INFO: [Synth 8-638] synthesizing module 'alu_decoder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu_decoder.vhd:11]
+INFO: [Synth 8-226] default block is never used [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu_decoder.vhd:19]
 INFO: [Synth 8-256] done synthesizing module 'alu_decoder' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu_decoder.vhd:11]
-INFO: [Synth 8-256] done synthesizing module 'control_unit' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:18]
-INFO: [Synth 8-3491] module 'datapath' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:7' bound to instance 'dp' of component 'datapath' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top_riscv.vhd:58]
-INFO: [Synth 8-638] synthesizing module 'datapath' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:24]
+INFO: [Synth 8-256] done synthesizing module 'control_unit' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/control_unit.vhd:21]
+INFO: [Synth 8-3491] module 'datapath' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:7' bound to instance 'dp' of component 'datapath' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top_riscv.vhd:66]
+INFO: [Synth 8-638] synthesizing module 'datapath' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:26]
 	Parameter width bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'ff_with_res' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/ff_with_res.vhd:6' bound to instance 'pcreg' of component 'ff_with_res' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:85]
+INFO: [Synth 8-3491] module 'ff_with_res' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/ff_with_res.vhd:6' bound to instance 'pcreg' of component 'ff_with_res' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:91]
 INFO: [Synth 8-638] synthesizing module 'ff_with_res' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/ff_with_res.vhd:14]
 	Parameter width bound to: 32 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'ff_with_res' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/ff_with_res.vhd:14]
-INFO: [Synth 8-3491] module 'adder' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/adder.vhd:6' bound to instance 'pcadd4' of component 'adder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:86]
+INFO: [Synth 8-3491] module 'adder' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/adder.vhd:6' bound to instance 'pcadd4' of component 'adder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:92]
 INFO: [Synth 8-638] synthesizing module 'adder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/adder.vhd:10]
 INFO: [Synth 8-256] done synthesizing module 'adder' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/adder.vhd:10]
-INFO: [Synth 8-3491] module 'adder' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/adder.vhd:6' bound to instance 'pcaddbranch' of component 'adder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:87]
+INFO: [Synth 8-3491] module 'adder' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/adder.vhd:6' bound to instance 'pcaddbranch' of component 'adder' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:93]
 	Parameter width bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'mux2' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux2.vhd:4' bound to instance 'pcmux' of component 'mux2' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:88]
-INFO: [Synth 8-638] synthesizing module 'mux2' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux2.vhd:10]
-	Parameter width bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mux2' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux2.vhd:10]
-INFO: [Synth 8-3491] module 'reg_file' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/reg_file.vhd:7' bound to instance 'rf' of component 'reg_file' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:91]
-INFO: [Synth 8-638] synthesizing module 'reg_file' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/reg_file.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'reg_file' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/reg_file.vhd:18]
-INFO: [Synth 8-3491] module 'extend_unit' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd:4' bound to instance 'ext' of component 'extend_unit' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:92]
-INFO: [Synth 8-638] synthesizing module 'extend_unit' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd:9]
-INFO: [Synth 8-226] default block is never used [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd:12]
-INFO: [Synth 8-256] done synthesizing module 'extend_unit' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd:9]
-	Parameter width bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'mux2' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux2.vhd:4' bound to instance 'srcbmux' of component 'mux2' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:95]
-INFO: [Synth 8-3491] module 'alu' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu.vhd:8' bound to instance 'mainalu' of component 'alu' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:96]
-INFO: [Synth 8-638] synthesizing module 'alu' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'alu' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu.vhd:18]
-	Parameter width bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'mux4' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux4.vhd:4' bound to instance 'resultmux' of component 'mux4' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:97]
+INFO: [Synth 8-3491] module 'mux4' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux4.vhd:4' bound to instance 'pcmux' of component 'mux4' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:94]
 INFO: [Synth 8-638] synthesizing module 'mux4' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux4.vhd:10]
 	Parameter width bound to: 32 - type: integer 
 WARNING: [Synth 8-614] signal 'd3' is read in the process but is not in the sensitivity list [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux4.vhd:12]
 INFO: [Synth 8-256] done synthesizing module 'mux4' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux4.vhd:10]
-INFO: [Synth 8-256] done synthesizing module 'datapath' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:24]
+INFO: [Synth 8-3491] module 'reg_file' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/reg_file.vhd:7' bound to instance 'rf' of component 'reg_file' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:97]
+INFO: [Synth 8-638] synthesizing module 'reg_file' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/reg_file.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'reg_file' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/reg_file.vhd:18]
+INFO: [Synth 8-3491] module 'extend_unit' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd:4' bound to instance 'ext' of component 'extend_unit' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:98]
+INFO: [Synth 8-638] synthesizing module 'extend_unit' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd:9]
+INFO: [Synth 8-226] default block is never used [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'extend_unit' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/extend_unit.vhd:9]
+	Parameter width bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'mux2' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux2.vhd:4' bound to instance 'srcbmux' of component 'mux2' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:101]
+INFO: [Synth 8-638] synthesizing module 'mux2' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux2.vhd:10]
+	Parameter width bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'mux2' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux2.vhd:10]
+INFO: [Synth 8-3491] module 'alu' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu.vhd:9' bound to instance 'mainalu' of component 'alu' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:102]
+INFO: [Synth 8-638] synthesizing module 'alu' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'alu' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/alu.vhd:21]
+	Parameter width bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'mux4' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux4.vhd:4' bound to instance 'resultmux' of component 'mux4' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:103]
+INFO: [Synth 8-256] done synthesizing module 'datapath' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/datapath.vhd:26]
 INFO: [Synth 8-256] done synthesizing module 'top_riscv' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top_riscv.vhd:14]
 INFO: [Synth 8-3491] module 'inst_memory' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/inst_memory.vhd:8' bound to instance 'imem1' of component 'inst_memory' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:43]
 INFO: [Synth 8-638] synthesizing module 'inst_memory' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/inst_memory.vhd:14]
 INFO: [Synth 8-256] done synthesizing module 'inst_memory' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/inst_memory.vhd:14]
 INFO: [Synth 8-3491] module 'data_memory' declared at 'D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/data_memory.vhd:8' bound to instance 'dmem1' of component 'data_memory' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:44]
 INFO: [Synth 8-638] synthesizing module 'data_memory' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/data_memory.vhd:17]
-ERROR: [Synth 8-403] loop limit (65536) exceeded [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/data_memory.vhd:26]
-ERROR: [Synth 8-285] failed synthesizing module 'data_memory' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/data_memory.vhd:17]
-ERROR: [Synth 8-285] failed synthesizing module 'top' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'data_memory' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/data_memory.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'top' (0#1) [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/top.vhd:12]
+WARNING: [Synth 8-7129] Port address[31] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[30] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[29] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[28] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[27] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[26] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[25] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[24] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[23] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[22] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[21] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[20] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[19] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[18] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[17] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[16] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[15] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[14] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[13] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[12] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[11] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[10] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[9] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[8] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[1] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[0] in module data_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[1] in module inst_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port address[0] in module inst_memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[6] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[5] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[4] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[3] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[2] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[1] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[0] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port opb5 in module alu_decoder is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1602.215 ; gain = 1083.648
+Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1081.656 ; gain = 565.016
 ---------------------------------------------------------------------------------
-synthesize failed
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1081.656 ; gain = 565.016
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-2L
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-2L
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1081.656 ; gain = 565.016
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'y_reg' [D:/vivado_projects/riscv_cpu/riscv_cpu.srcs/sources_1/new/mux4.vhd:13]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1081.656 ; gain = 565.016
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 3     
+	   3 Input   32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   4 Input   32 Bit        Muxes := 3     
+	   2 Input   32 Bit        Muxes := 3     
+	  65 Input   32 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 2     
+	   8 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+INFO: [Device 21-9227] Part: xc7a100tcsg324-2L does not have CEAM library.
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port Instr[6] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[5] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[4] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[3] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[2] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[1] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Instr[0] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[31]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[30]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[29]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[28]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[27]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[26]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[25]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[24]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[23]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[22]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[21]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[20]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[19]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[18]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[17]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[16]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[15]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[14]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[13]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[12]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[11]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[10]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[9]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[8]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/pcmux/y_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[31]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[30]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[29]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[28]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[27]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[26]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[25]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[24]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[23]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[22]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[21]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[20]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[19]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[18]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[17]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[16]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[15]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[14]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[13]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[12]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[11]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[10]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[9]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[8]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (rvsingle/dp/resultmux/y_reg[0]) is unused and will be removed from module top.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:32 . Memory (MB): peak = 1357.031 ; gain = 840.391
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+------------------------+-----------+----------------------+----------------+
+|Module Name | RTL Object             | Inference | Size (Depth x Width) | Primitives     | 
++------------+------------------------+-----------+----------------------+----------------+
+|top         | rvsingle/dp/rf/mem_reg | Implied   | 32 x 32              | RAM32M x 12    | 
+|top         | dmem1/data_mem_reg     | Implied   | 64 x 32              | RAM64X1S x 32  | 
++------------+------------------------+-----------+----------------------+----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:32 . Memory (MB): peak = 1357.918 ; gain = 841.277
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++------------+------------------------+-----------+----------------------+----------------+
+|Module Name | RTL Object             | Inference | Size (Depth x Width) | Primitives     | 
++------------+------------------------+-----------+----------------------+----------------+
+|top         | rvsingle/dp/rf/mem_reg | Implied   | 32 x 32              | RAM32M x 12    | 
+|top         | dmem1/data_mem_reg     | Implied   | 64 x 32              | RAM64X1S x 32  | 
++------------+------------------------+-----------+----------------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:32 . Memory (MB): peak = 1357.918 ; gain = 841.277
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1357.922 ; gain = 841.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1357.922 ; gain = 841.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1357.922 ; gain = 841.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1357.922 ; gain = 841.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1357.922 ; gain = 841.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1357.922 ; gain = 841.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |    10|
+|3     |LUT1     |    34|
+|4     |LUT2     |    68|
+|5     |LUT3     |    55|
+|6     |LUT4     |     2|
+|7     |LUT5     |     3|
+|8     |LUT6     |    13|
+|9     |RAM32M   |    10|
+|10    |RAM32X1D |     4|
+|11    |RAM64X1S |    32|
+|12    |FDCE     |     6|
+|13    |IBUF     |     2|
+|14    |OBUF     |    65|
++------+---------+------+
+
+Report Instance Areas: 
++------+--------------+------------+------+
+|      |Instance      |Module      |Cells |
++------+--------------+------------+------+
+|1     |top           |            |   305|
+|2     |  dmem1       |data_memory |    32|
+|3     |  rvsingle    |top_riscv   |   204|
+|4     |    dp        |datapath    |   204|
+|5     |      mainalu |alu         |    40|
+|6     |      pcadd4  |adder       |     3|
+|7     |      pcreg   |ff_with_res |    84|
+|8     |      rf      |reg_file    |    77|
++------+--------------+------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1357.922 ; gain = 841.281
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 110 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1357.922 ; gain = 841.281
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1357.922 ; gain = 841.281
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1369.977 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 56 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1399.809 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 46 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 10 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 4 instances
+  RAM64X1S => RAM64X1S (RAMS64E): 32 instances
+
+Synth Design complete | Checksum: f3d458e9
 INFO: [Common 17-83] Releasing license: Synthesis
-50 Infos, 7 Warnings, 0 Critical Warnings and 4 Errors encountered.
-synth_design failed
-ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
-INFO: [Common 17-206] Exiting Vivado at Wed Jul 23 17:13:33 2025...
+61 Infos, 110 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:40 . Memory (MB): peak = 1399.809 ; gain = 887.148
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1399.809 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/vivado_projects/riscv_cpu/riscv_cpu.runs/synth_1/top.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Oct  4 13:43:25 2025...
