@@ -16,7 +16,8 @@ The CPU supports most of the RV32I instructions, with only a few exceptions.
 ---
 
 ##  Microarchitecture (Based on the Book’s Design)
-![image.png](attachment:49ae2fd6-4ef9-49aa-92a4-3a3b0e4cabf3:image.png)
+<img width="1038" height="598" alt="image" src="https://github.com/user-attachments/assets/be2237cb-57ee-412a-9137-7f6316f67967" />
+
 
 ---
 
